@@ -64,6 +64,16 @@ async function run(){
         console.log('delete id',result);
         res.json(result);
     });
+
+    //DELETE userBooking API
+    app.delete('/myBookings/:id', async(req, res)=>{
+        const id = req.params.id;
+        const query={_id:ObjectId(id)}
+        const result = await myBookingCollection.deleteOne(query);
+        console.log('delete id',result);
+        res.json(result);
+    });
+
     }
     finally{}
 }
